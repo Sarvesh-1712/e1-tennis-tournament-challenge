@@ -1,0 +1,12 @@
+Match: 01
+Person Tarzan vs Person Kong
+0
+1
+0
+1
+Match: 02
+Person Tarzan vs Person Thunderbolts
+0
+0
+1
+1
