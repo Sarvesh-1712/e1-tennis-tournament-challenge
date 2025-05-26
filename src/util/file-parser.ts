@@ -1,6 +1,14 @@
 import fs from 'fs';
 
-import { getMatchId, hasMatchText, isValidPoint, Match, MatchId, Point } from "../model/match";
+import { 
+    getMatchId, 
+    hasMatchText, 
+    isValidPoint, 
+    Match, 
+    MatchId, 
+    Point 
+} from "../model/match";
+
 import { getPlayers } from "../model/player";
 
 /**
