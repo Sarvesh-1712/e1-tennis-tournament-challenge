@@ -1,15 +1,16 @@
 import { MATCH } from "../constants/tournament";
 import { Player } from "./player";
+import { Stats } from "./stats";
 
 export type MatchId = string;
 
 export type Point = number; 
 
 export interface Match {
-    id: MatchId;
-    firstPlayer: Player;
-    secondPlayer: Player;
-    points: Point[];
+    id: MatchId
+    firstPlayer: Player
+    secondPlayer: Player
+    points: Point[]
 }
 
 /**
@@ -44,4 +45,15 @@ export const getMatchId = (text: string): MatchId => {
  */
 export const isValidPoint = (text: string): boolean => {
     return /^[01]$/.test(text)
+}
+
+/**
+ * Winning a game requires a person to win 4 points, but they must be ahead by at least 2 points (deuce, advantage, game)
+ * 
+ * @param firstPlayerPoint first player point
+ * @param secondPlayerPoint second player point
+ * @returns true if first player has won, false otherwise
+ */
+export const hasPlayerWonByPoints = (firstPlayerPoint: Point, secondPlayerPoint: Point): boolean => {
+    return firstPlayerPoint >= 4 && firstPlayerPoint - secondPlayerPoint >= 2
 }
