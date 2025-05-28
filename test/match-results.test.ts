@@ -1,4 +1,4 @@
-import { fetchMatchResults } from "../src/core/match-results";
+import { fetchMatchResult } from "../src/core/match-results";
 import { Match } from "../src/model/match";
 
 describe('fetchMatchResults', () => {
@@ -9,7 +9,7 @@ describe('fetchMatchResults', () => {
             secondPlayer: 'Person Kong',
             points: []
         }]
-        const matchResult = fetchMatchResults('Score 02', matches)
+        const matchResult = fetchMatchResult('Score 02', matches)
         expect(matchResult).toBeNull();
     });
     
@@ -20,7 +20,7 @@ describe('fetchMatchResults', () => {
             secondPlayer: 'Person Kong',
             points: []
         }]
-        const matchResult = fetchMatchResults('Score Match 02', matches)
+        const matchResult = fetchMatchResult('Score Match 02', matches)
         expect(matchResult).toBeNull();
     });
 
@@ -31,9 +31,21 @@ describe('fetchMatchResults', () => {
             secondPlayer: 'Person Kong',
             points: []
         }]
-        const matchResult = fetchMatchResults('Score Match 01', matches)
+        const matchResult = fetchMatchResult('Score Match 01', matches)
         expect(matchResult).toBeNull();
     });
+
+    it('when match id is queried as number, then some match result should be returned', () => {
+      const matches: Match[] = [{
+          id: '01',
+          firstPlayer: 'Person Tarzan',
+          secondPlayer: 'Person Kong',
+          points: [0, 0, 1]
+      }]
+      const matchResult = fetchMatchResult('Score Match 1', matches)
+      expect(matchResult).toBeDefined();
+  });
+
 
     it('when proper match id with some points given, then some match result should be returned', () => {
         const matches: Match[] = [{
@@ -42,7 +54,7 @@ describe('fetchMatchResults', () => {
             secondPlayer: 'Person Kong',
             points: [0, 0, 1]
         }]
-        const matchResult = fetchMatchResults('Score Match 01', matches)
+        const matchResult = fetchMatchResult('Score Match 01', matches)
         expect(matchResult).toBeDefined();
     });
 
@@ -55,7 +67,7 @@ describe('fetchMatchResults', () => {
               ...Array(18).fill(0)
             ]
           }]
-        const matchResult = fetchMatchResults('Score Match 03', matches)
+        const matchResult = fetchMatchResult('Score Match 03', matches)
         
         expect(matchResult).toBeDefined();
         expect(matchResult?.id).toBe(matches[0].id)
@@ -72,7 +84,7 @@ describe('fetchMatchResults', () => {
               ...Array(24).fill(0)
             ]
           }]
-        const matchResult = fetchMatchResults('Score Match 03', matches)
+        const matchResult = fetchMatchResult('Score Match 03', matches)
         
         expect(matchResult).toBeDefined();
         expect(matchResult?.id).toBe(matches[0].id)
@@ -90,7 +102,7 @@ describe('fetchMatchResults', () => {
               ...Array(24).fill(1),
             ]
           }]
-        const matchResult = fetchMatchResults('Score Match 03', matches)
+        const matchResult = fetchMatchResult('Score Match 03', matches)
         
         expect(matchResult).toBeDefined();
         expect(matchResult?.id).toBe(matches[0].id)
@@ -108,7 +120,7 @@ describe('fetchMatchResults', () => {
               ...Array(24).fill(0),
             ]
           }]
-        const matchResult = fetchMatchResults('Score Match 03', matches)
+        const matchResult = fetchMatchResult('Score Match 03', matches)
         
         expect(matchResult).toBeDefined();
         expect(matchResult?.id).toBe(matches[0].id)
@@ -126,7 +138,7 @@ describe('fetchMatchResults', () => {
               ...Array(24).fill(1),
             ]
           }]
-        const matchResult = fetchMatchResults('Score Match 03', matches)
+        const matchResult = fetchMatchResult('Score Match 03', matches)
         
         expect(matchResult).toBeDefined();
         expect(matchResult?.id).toBe(matches[0].id)
@@ -145,7 +157,7 @@ describe('fetchMatchResults', () => {
               ...Array(24).fill(0),
             ]
           }]
-        const matchResult = fetchMatchResults('Score Match 03', matches)
+        const matchResult = fetchMatchResult('Score Match 03', matches)
 
         expect(matchResult).toBeDefined();
         expect(matchResult?.id).toBe(matches[0].id)

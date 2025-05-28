@@ -21,7 +21,7 @@ const setsTo = (firstPlayerSet: Set, secondPlayerSet: Set): string => (
 
 // Best of 2 winning sets, wins the match
 const hasMatchWon = (firstPlayerSet: Set, secondPlayerSet: Set): boolean => (
-    firstPlayerSet >= 2 || secondPlayerSet >= 2
+    firstPlayerSet == 2 || secondPlayerSet == 2
 )
 
 /**

@@ -29,8 +29,8 @@ export const parseFile = (pathToFile: string): Match[] => {
         .map(content => content.trim())
     }
 
-    // skip the lines or unexpected lines up front
-    function skipToFetchingMatchId(): number {
+    // skip unexpected lines to find first match id query string
+    function skipToFirstMatchId(): number {
         let index = 0    
         for(index = 0; index < contentsLength; index++) {
             if (hasMatchText(contents[index])) {
@@ -45,7 +45,7 @@ export const parseFile = (pathToFile: string): Match[] => {
     const matches: Match[] = []
     const contentsLength = contents.length
     
-    let i = skipToFetchingMatchId()
+    let i = skipToFirstMatchId()
     while (i < contentsLength) {
         // extract match id
         const id: MatchId | null = getMatchId(contents[i++], SEMICOLON)

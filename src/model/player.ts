@@ -3,7 +3,7 @@ import { GAMES_PLAYER } from "../constants/command-line";
 export type Player = string;
 
 /**
- * Get player name from the query
+ * Get player name from the input query
  * 
  * @param text player name text
  * @returns player name if found, else null

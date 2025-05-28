@@ -89,9 +89,9 @@ const calculateMatchResult = (match: Match): MatchResult | null => {
  * @param matches list of tournament matches
  * @returns MatchResult
  */
-export const fetchMatchResults = (input: string, matches: Match[]): MatchResult | null  => {
+export const fetchMatchResult = (input: string, matches: Match[]): MatchResult | null  => {
     const matchId: MatchId | null = getMatchId(input, `${SCORE_MATCH}`)
-    const match: Match | undefined = matches.find(match => match.id === matchId)
+    const match: Match | undefined = matches.find(match => Number(match.id) === Number(matchId))
 
     if (!match) {
         console.log(`Error 404: Match id: ${matchId}  not found. Try again`)

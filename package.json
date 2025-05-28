@@ -1,7 +1,7 @@
 {
   "name": "e1-tennis-tournament-challenge",
   "version": "1.0.0",
-  "description": "",
+  "description": "E1 Coding Challenge - Tennis Tournament",
   "main": "index.js",
   "scripts": {
     "build": "tsc",

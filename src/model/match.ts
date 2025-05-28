@@ -1,6 +1,5 @@
 import { MATCH } from "../constants/tournament";
 import { Player } from "./player";
-import { Stats } from "./stats";
 
 export type MatchId = string;
 
