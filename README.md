@@ -4,15 +4,11 @@
 
 The tennis calculator is a command line application that takes a structured file containing match, player and points information as inputs and produces useful statistics based on those scores.
 
-This calculator will used a simplified version of scoring where whoever gets to 6 games first wins the set
+This calculator will used a simplified version of scoring where whoever gets to 6 games first wins the set and whoever wins 2 sets first, wins the game.
 
 ## Overview
 
-The Tennis Calculator takes inputs in the form of a list of points of a tennis match. 
-
-Given this list of points, it will calculate the "games", "sets" and "matches" results.
-
-From there it can be queried about various statistics around the input matches it received. 
+The Tennis Calculator takes inputs in the form of a list of points of a tennis match. Given this list of points, it will calculate the "games", "sets" and "matches" results. From there it can be queried about various statistics around the input matches it received. 
 
 ## Technology stack
 
@@ -109,10 +105,10 @@ For processing, blank lines must be ignored
 ## Supported Queries
 
 ### Query match result
-Query: `Score Match <id>`
-Explanation: Prints who defeated whom, and the result of the sets for the match (winning player score first).
-Example: `Score Match 02`
-Example output: 
+- Query: `Score Match <id>`
+- Explanation: Prints who defeated whom, and the result of the sets for the match (winning player score first).
+- Example: `Score Match 02`
+- Example output: 
 ```bash
 Match Result
 Match id: 02
@@ -122,10 +118,10 @@ Person C defeated Person A
 
 
 ### Query games for player
-Query: `Games Player <Player Name>`
-Explanation: Prints a summary of games won vs lost for a particular player over the tournament
-Example: `Games Player Person A`
-Example output:
+- Query: `Games Player <Player Name>`
+- Explanation: Prints a summary of games won vs lost for a particular player over the tournament
+- Example: `Games Player Person A`
+- Example output:
 ```bash
 Player summary
 Won Lost
@@ -176,7 +172,27 @@ npm test
 - Best of 3 sets (first to 2 sets wins). No tiebreak or advanced deuce rules applied.
 
 ## Future improvements
-- Make this as a full stack application involving:
-  - NodeJs could be converted to REST application to serve the results over web.
-  - Frontend JavaScript library like React could be added to present the information visually to users.
-  - Result can be persisted using database support. Could implement a relational database to persist the information retrieved from the file and the result as well. 
+The current implementation is a CLI-based tennis match calculator. To enhance functionality and usability, the following improvements can be considered:
+
+Making this as Full-Stack Application
+- Convert to a RESTful API using Node.js
+```bash
+Transform the existing CLI logic into REST endpoints to allow external systems or frontend clients 
+to consume match data and results via HTTP.
+```
+
+- Add a Frontend Interface using React
+```bash
+Develop a user-friendly web interface to allow users to:
+- Upload match files
+- Fetch players involved as dropdown informations.
+- Query player and match summaries interactively
+```
+
+Integrate a Relational Database
+```bash
+Use a database such as PostgreSQL or MySQL to:
+- Persist match data and results
+- Support user sessions
+```
+
