@@ -1,9 +1,9 @@
 import path from "path";
-import { parseFile } from "../../src/util/file-parser";
+import { parseFile } from "../src/util/file-parser";
 
 describe('FileParser', () => {
     function getFilePath(fileName: string) {
-        return path.join(__dirname, `../resources/${fileName}`)
+        return path.join(__dirname, `/data/${fileName}`)
     }
 
     it('returns empty array for no data found', () => {

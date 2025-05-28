@@ -27,14 +27,15 @@ export const hasMatchText = (text: string): boolean => {
  * Extracts the Match ID from a specified text format
  * 
  * @param text text matching format "Match: match-id"
+ * @param separator separator 
  * @returns match-id
  */
-export const getMatchId = (text: string): MatchId => {
-    const matchIdItems = text.split(':')
+export const getMatchId = (text: string, separator: string): MatchId | null => {
+    const matchIdItems = text.split(separator)
     if (matchIdItems.length == 2) {
         return matchIdItems[1].trim()
     }
-    throw new Error('Match id not extracted properly')
+    return null
 }
 
 /**
