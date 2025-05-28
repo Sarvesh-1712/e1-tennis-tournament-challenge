@@ -22,7 +22,7 @@ describe('FileParser', () => {
             points: [0, 0],
           },
         ]);
-      });
+    });
     
 
     it('parses one match entries correctly', () => {
